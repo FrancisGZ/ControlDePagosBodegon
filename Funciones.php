@@ -414,6 +414,55 @@
 }
 
 
+
+
+
+
+	function ObetenerSaldoVencidoPretarjeta($NumeroDePretarjeta,$Plazo,$MontoTotalFactura,$FechaPrimerPago,$Pago)
+		{
+		if($Plazo>0)
+		{
+
+				/*Verificar datos*/
+				echo "</br>Fecha PrimerPago ".$FechaPrimerPago;
+				echo "</br>Fecha Actual: ".date('Y-m-d', strtotime('today'));
+			
+				$datetime1 = date_create($FechaPrimerPago);//Fecha de la Factura
+				$datetime2 =date_create(date('Y-m-d', strtotime('today')));//Fecha Actual
+				//$datetime1->add(new DateInterval('P7D'));
+
+				
+
+
+				$interval = $datetime1->diff($datetime2);
+				//$SemanasTranscurridas=floor(($interval->format('%a') / 7));
+				$SemanasTranscurridas=floor(($interval->format('%a') / 7));
+
+				
+				echo "</br>Semanas transcurridas: ".$SemanasTranscurridas;
+
+				 echo "</br>Semanas limite: ".$LimiteDeSemanas=ceil($Plazo*4.3);
+
+				 //$LimiteDeSemanas=$Plazo*4.3;
+
+
+				 if($LimiteDeSemanas>=$SemanasTranscurridas)
+				 {
+					$Semanas=$SemanasTranscurridas;
+					 
+				}
+				else{
+
+					$Semanas=$LimiteDeSemanas;
+				}
+
+				$SaldoVencido=$Semanas*$Pago;
+				return $SaldoVencido;
+
+	}
+}
+
+
 function ObetenerSaldoVencidoConFecha($IdFactura,$Plazo,$MontoTotalFactura,$FechaPrimerPago,$FechaSaldoVencido,$Pago)
 		{
 				$datetime1 = date_create($FechaPrimerPago);//Fecha de la Factura

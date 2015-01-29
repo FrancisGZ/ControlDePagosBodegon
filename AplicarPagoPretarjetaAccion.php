@@ -95,7 +95,7 @@
 
 
 
-		if($boton=="Buscar Cliente")
+		/*if($boton=="Buscar Cliente")
 			{
 		
 				
@@ -124,7 +124,7 @@
 		header("location:AplicarPago.php?txtIdCliente=$IdCliente&txtNombreCliente=$NombreCliente&txtIdFactura=$IdFactura&txtMontoTotalFactura=$MontoTotalFactura&txtSaldo=$Saldo&txtPagoNormal=$PagoNormal&txtPagoPuntual=$PagoPuntual");
 	}
 	
-}
+}*/
 
 
 if ($boton=="Buscar Pretarjeta") {
@@ -166,7 +166,7 @@ if ($boton=="Buscar Pretarjeta") {
 
 	if($boton=="Buscar Por Nombre")
 	{
-		header("location:BuscarClientePorNombre.php?txtNombreCliente=$NombreCliente&txtPaginaOrigen=AplicarPago");
+		header("location:BuscarClientePretarjetaPorNombre.php?txtNombreCliente=$NombreCliente&txtPaginaOrigen=AplicarPagoPretarjeta");
 	}
 
 

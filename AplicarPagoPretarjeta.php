@@ -153,7 +153,7 @@ if(isset($_GET['Mensaje']))
 			</td>
 			<td>
 				<input name="txtNombreCliente"  type="text" value="<?php echo $NombreCliente?>" >
-				<!--<input name="btnAccion" type="submit" value="Buscar Por Nombre" formnovalidate="formnovalidate">-->
+				<input name="btnAccion" type="submit" value="Buscar Por Nombre" formnovalidate="formnovalidate">
 			</td>
 		</tr>
 		<tr>
