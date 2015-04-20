@@ -4,7 +4,7 @@
 /** 
 *
 * @Accion para Alta Factura . "AltaFactura.php"
-* @versión: 1.1      @modificado: 12 de Octubre del 2014
+* @versión: 1.12     @modificado: 30 de Octubre del 2015
 * @autor: Francis Alonso Gonzalez Zarate
 *
 */
@@ -44,7 +44,7 @@
 		$NumeroDePretarjeta=$_GET["txtNumeroDePretarjeta"];
 	}else
 	{
-		echo $NumeroDePretarjeta=0;
+		 $NumeroDePretarjeta=0;
 	}
 
 
@@ -130,7 +130,7 @@
 		$queryVerificaCliente="Select * from clientes where IdCliente='$IdCliente'";
 		$existeCliente=VerificaSiExisteRegistro($queryVerificaCliente);
 
-		//if(!is_null($renglonVerificaFactura))
+	
 		if($existeFactura) 
 		{
 			
@@ -173,6 +173,8 @@
 				InsertaPagosPretarjetaAFactura($NumeroDePretarjeta,$IdFactura);
 
 				//header("location:ConsultaSaldo.php");
+
+				header("location:EstadoDeCuentaAccion.php?btnAccion=Buscar por Clave&txtIdCliente=$IdCliente&txtNombreCliente=$NombreCliente&txtIdFactura=$IdFactura");
 			
 		}		
 
@@ -218,65 +220,66 @@
 		function ObtenerDatosYRedireccionar($renglon)
 		{
 			
-			echo $NumeroDePretarjeta=$renglon['NumeroDePretarjeta'];
-			echo "____";
-			echo $NombreCliente = $renglon['NombreCliente']; 
-			echo "____";
-			echo $Colonia=$renglon['Colonia'];
-			echo "____";
-			echo $Calle=$renglon['Calle'];
-			echo "____";
-			echo $Telefono=$renglon['Telefono'];
-			echo "____";
-			echo $CodigoPostal=$renglon['CodigoPostal'];
-			echo "____";
-			echo $Municipio=$renglon['Municipio'];
-			echo "____";
-			echo $FechaFactura=$renglon['FechaFactura'];
-			echo "____";
-			echo $Financiamiento=$renglon['Financiamiento'];
-			echo "____";
-			echo $MontoTotalFactura=$renglon['MontoTotalFactura'];
-			echo "____";
-			echo $Articulos=$renglon['Articulos'];
-			echo "____";
-			echo $Ruta=$renglon['Ruta'];
-			echo "____";
-			echo $Plazo=$renglon['Plazo'];
-			echo "____";
-			echo $PagoNormal=$renglon['PagoNormal'];
-			echo "____";
-			echo $PagoPuntual=$renglon['PagoPuntual'];
-			echo "____";
-			echo $FechaPrimerPago=$renglon['FechaPrimerPago'];
-			echo "____";
-			echo $Observaciones=$renglon['Observaciones'];
-			echo "____";
-			echo $Vendedor=$renglon['Vendedor'];
-			echo "____";
-			echo $Comision=$renglon['Comision'];
+			 $NumeroDePretarjeta=$renglon['NumeroDePretarjeta'];
+			//echo "____";
+			 $NombreCliente = $renglon['NombreCliente']; 
+			//echo "____";
+			$Colonia=$renglon['Colonia'];
+			//echo "____";
+			 $Calle=$renglon['Calle'];
+			//echo "____";
+			 $Telefono=$renglon['Telefono'];
+			//echo "____";
+			 $CodigoPostal=$renglon['CodigoPostal'];
+			//echo "____";
+			 $Municipio=$renglon['Municipio'];
+			//echo "____";
+			 $FechaFactura=$renglon['FechaFactura'];
+			//echo "____";
+			 $Financiamiento=$renglon['Financiamiento'];
+			//echo "____";
+			 $MontoTotalFactura=$renglon['MontoTotalFactura'];
+			//echo "____";
+			 $Articulos=$renglon['Articulos'];
+			//echo "____";
+			 $Ruta=$renglon['Ruta'];
+			//echo "____";
+			 $Plazo=$renglon['Plazo'];
+			//echo "____";
+			 $PagoNormal=$renglon['PagoNormal'];
+			//echo "____";
+			 $PagoPuntual=$renglon['PagoPuntual'];
+			//echo "____";
+			 $FechaPrimerPago=$renglon['FechaPrimerPago'];
+			//echo "____";
+			 $Observaciones=$renglon['Observaciones'];
+			//echo "____";
+			 $Vendedor=$renglon['Vendedor'];
+			//echo "____";
+			 $Comision=$renglon['Comision'];
 			/*------------Avales----------*/
-			echo "Aval";
-			echo "____";
-			echo $NombreAval=$renglon['NombreAval'];
-			echo "____";
-			echo $ColoniaAval=$renglon['ColoniaAval'];
-			echo "____";
-			echo $CalleAval=$renglon['CalleAval'];
-			echo "____";
-			echo $TelefonoAval=$renglon['TelefonoAval'];
-			echo "____";
-			echo $CodigoPostalAval=$renglon['CodigoPostalAval'];
-			echo "____";
-			echo $MunicipioAval=$renglon['MunicipioAval'];
+			//echo "Aval";
+			//echo "____";
+			 $NombreAval=$renglon['NombreAval'];
+			//echo "____";
+			 $ColoniaAval=$renglon['ColoniaAval'];
+			//echo "____";
+			 $CalleAval=$renglon['CalleAval'];
+			//echo "____";
+			 $TelefonoAval=$renglon['TelefonoAval'];
+			//echo "____";
+			 $CodigoPostalAval=$renglon['CodigoPostalAval'];
+			//echo "____";
+			 $MunicipioAval=$renglon['MunicipioAval'];
 
 			
 			
 
-
-
-			header("location:AltaFactura.php?txtNombreCliente=$NombreCliente&txtColonia=$Colonia&txtCalle=$Calle&txtTelefono=$Telefono&txtCodigoPostal=$CodigoPostal&txtMunicipio=$Municipio&txtFechaFactura=$FechaFactura&txtFechaPrimerPago=$FechaPrimerPago&txtFinanciamiento=$Financiamiento&txtMontoTotalFactura=$MontoTotalFactura&txtArticulos=$Articulos&cmbRuta=$Ruta&txtNumeroDePretarjeta=$NumeroDePretarjeta&txtPlazo=$Plazo&txtPagoPuntual=$PagoPuntual&txtPagoNormal=$PagoNormal&txtObservaciones=$Observaciones&txtVendedor=$Vendedor&txtComision=$Comision&txtNombreAval=$NombreAval&txtColoniaAval=$ColoniaAval&txtCalleAval=$CalleAval&txtTelefonoAval=$TelefonoAval&txtCodigoPostalAval=$CodigoPostalAval&txtMunicipioAval=$MunicipioAval");
+			 //No incluir saltos de linea en el campo observaciones
+		header("location:AltaFactura.php?txtNombreCliente=$NombreCliente&txtColonia=$Colonia&txtCalle=$Calle&txtTelefono=$Telefono&txtCodigoPostal=$CodigoPostal&txtMunicipio=$Municipio&txtFechaFactura=$FechaFactura&txtFechaPrimerPago=$FechaPrimerPago&txtFinanciamiento=$Financiamiento&txtMontoTotalFactura=$MontoTotalFactura&txtArticulos=$Articulos&cmbRuta=$Ruta&txtNumeroDePretarjeta=$NumeroDePretarjeta&txtPlazo=$Plazo&txtPagoPuntual=$PagoPuntual&txtPagoNormal=$PagoNormal&txtObservaciones=$Observaciones&txtVendedor=$Vendedor&txtComision=$Comision&txtNombreAval=$NombreAval&txtColoniaAval=$ColoniaAval&txtCalleAval=$CalleAval&txtTelefonoAval=$TelefonoAval&txtCodigoPostalAval=$CodigoPostalAval&txtMunicipioAval=$MunicipioAval");
 			
+
+			//echo "<script language='javascript'>window.location='AltaFactura.php?txtNombreCliente=$NombreCliente&txtColonia=$Colonia&txtCalle=$Calle&txtTelefono=$Telefono&txtCodigoPostal=$CodigoPostal&txtMunicipio=$Municipio&txtFechaFactura=$FechaFactura&txtFechaPrimerPago=$FechaPrimerPago&txtFinanciamiento=$Financiamiento&txtMontoTotalFactura=$MontoTotalFactura&txtArticulos=$Articulos&cmbRuta=$Ruta&txtNumeroDePretarjeta=$NumeroDePretarjeta&txtPlazo=$Plazo&txtPagoPuntual=$PagoPuntual&txtPagoNormal=$PagoNormal&txtObservaciones=$Observaciones&txtVendedor=$Vendedor&txtComision=$Comision&txtNombreAval=$NombreAval&txtColoniaAval=$ColoniaAval&txtCalleAval=$CalleAval&txtTelefonoAval=$TelefonoAval&txtCodigoPostalAval=$CodigoPostalAval&txtMunicipioAval=$MunicipioAval'</script>";
 	}
 
 

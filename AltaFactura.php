@@ -14,13 +14,15 @@
 /** 
 *
 * @Accion para Alta Factura . "AltaFactura.php"
-* @versión: 1.7      @modificado: 27 de Noviembre del 2014
+* @versión: 2     @modificado: 20 de Abril del 2015
 * @autor: Francis Alonso Gonzalez Zarate
 *
 */
 
 	/*----Obtiene la Informacion del cliente----***/	
 
+
+include("funciones.php");
 
 if(isset($_GET["txtNumeroDePretarjeta"]))
 {
@@ -473,19 +475,17 @@ window.addEventListener('load', init);
 					<label>Ruta:</label>
 				</td>
 				<td>
-							<?php $link=mysqli_connect("localhost","root","" , "bodegon");
+							<?php 
 
-								$query="Select * from Rutas "
+								$rutas=ObtenerRutas();
 
-
+							
 							?>
 							<select name="cmbRuta" required >
-								<option value="<?php echo $Ruta ?>"><?php echo $Ruta ?></option>";
+								<option value="<?php echo $Ruta ?>"><?php echo $Ruta ?> </option>";
 								<?php
-								$resultado=$link->query($query);
 
-
-								while($renglon=$resultado->fetch_array())
+								while($renglon=$rutas->fetch_array())
 								{
 									echo "<option value='$renglon[IdRuta]'>$renglon[IdRuta]</option>";
 								}

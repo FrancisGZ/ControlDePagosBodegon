@@ -149,7 +149,7 @@
 
 									echo "<h5>Total Notas de Cargo: $$TotalNotasDeCargo</h5>";
 
-								//echo "<a href='ExportarExcelReportePagos.php?cmbRuta=$Ruta&txtFechaInicial=$FechaInicial&txtFechaFinal=$FechaFinal'>Exportar a Exccel</a></dvi>";
+								echo "<a href='ExportarExcelReportePagos.php?cmbRuta=$Ruta&txtFechaInicial=$FechaInicial&txtFechaFinal=$FechaFinal'>Exportar a Exccel</a></dvi>";
 
 							}else
 							{

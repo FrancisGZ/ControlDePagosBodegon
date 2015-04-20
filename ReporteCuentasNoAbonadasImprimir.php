@@ -50,12 +50,12 @@
 
 						if($Ruta=="TODAS")
 						{
-							$query="select * from  clientes as a inner join factura as b on (a.IdCliente=b.IdCliente) ";
+							$query="select * from  clientes as a inner join factura as b on (a.IdCliente=b.IdCliente) order by b.FechaFactura ";
 
 							//$query="select * from  clientes as a inner join factura as b on (a.IdCliente=b.IdCliente) where a.IdCliente=047001531";
 						}else
 						{
-							$query="select * from  clientes as a inner join factura as b on (a.IdCliente=b.IdCliente) where a.Ruta='$Ruta' ";	
+							$query="select * from  clientes as a inner join factura as b on (a.IdCliente=b.IdCliente) where a.Ruta='$Ruta' order by b.FechaFactura  ";	
 
 							
 						}
@@ -98,9 +98,14 @@
 								$SaldoInicialFactura=$SaldoInicialFactura+$NotasDeCargoIniciales;
 
 								 //$Saldo=Saldo($IdFactura,$MontoTotalFactura,$SaldoInicialFactura,$NotasDeCargoIniciales, $link); 	
-							
+									
 								 $Saldo=Saldo($IdFactura,$MontoTotalFactura,$SaldoInicialFactura );
-								if($Saldo==$MontoTotalFactura)
+
+
+								 $fechaActual=date('Y-m-d', strtotime('today')); 
+								 $fechaActualMenosUnMes = date('Y-m-d',strtotime('-1 months', strtotime($fechaActual)));
+
+								if($Saldo==$MontoTotalFactura and $FechaFactura<$fechaActualMenosUnMes)
 								{
 								
 

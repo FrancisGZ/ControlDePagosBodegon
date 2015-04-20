@@ -182,7 +182,7 @@ if ($boton=="Buscar Pretarjeta") {
 		if(!$existeFactura)
 		{
 
-			echo "factura";
+			
 				$queryVerificaPago="select * from pagos where IdPago='$IdPago'";
 
 				$existePago=VerificaSiExisteRegistro($queryVerificaPago);
@@ -197,7 +197,9 @@ if ($boton=="Buscar Pretarjeta") {
 
 					$Mensaje="Se aplico el pago";
 			
-					header("location:AplicarPagoPretarjeta.php?NumeroDePretarjeta=$NumeroDePretarjeta&Mensaje=$Mensaje");
+					
+
+					header("location:EstadoDecuentaPretarjetaAccion.php?btnAccion=Buscar Pretarjeta&txtNumeroDePretarjeta=$NumeroDePretarjeta&Mensaje=$Mensaje");
 
 					
 

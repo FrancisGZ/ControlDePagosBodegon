@@ -105,7 +105,7 @@
 			$existePretarjeta=VerificaSiExisteRegistro($queryBuscaPretarjeta);
 
 			
-
+			echo $existePretarjeta;
 
 
 
@@ -131,7 +131,10 @@
 				InsertaAvalesTemporal($NumeroDePretarjeta,$NombreAval,$ColoniaAval,$CalleAval,$CodigoPostalAval,$MunicipioAval,$TelefonoAval);
 
 
-				header("location:AltaFactura.php");
+			
+
+
+				header("location:EstadoDeCuentaPretarjetaAccion.php?btnAccion=Buscar Pretarjeta&txtNumeroDePretarjeta=$NumeroDePretarjeta");
 			}
 	
 

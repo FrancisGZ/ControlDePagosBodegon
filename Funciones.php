@@ -1,40 +1,13 @@
 <?php
 	
 	//$link=mysqli_connect("localhost","root","","bodegon");
-	$link =mysqli_connect('localhost','root','','bodegon');
+	
+	include_once("db/db.php");
 
 
-	function ResultadoQuery($query)
-	{
-		global $link;
-		
+	
 
-		$resultado=$link->query($query);
-
-		$renglon=$resultado->fetch_array();
-
-		return $renglon;
-	}
-
-
-	function VerificaSiExisteRegistro($query)
-	{
-		global $link;
-
-		$resultado=$link->query($query);
-
-		$renglon=$resultado->fetch_array();
-
-		if(is_null($renglon))
-		{
-			$existe=false;
-		}else
-		{
-			$existe=true;
-		}
-
-		return $existe;
-	}
+	
 
 	function InsertaCliente($IdCliente,$NombreCliente,$Colonia,$Calle,$Telefono,$CodigoPostal,
 								$Municipio,$Ruta)
@@ -375,8 +348,8 @@
 		{
 
 				/*Verificar datos*/
-				echo "</br>Fecha PrimerPago ".$FechaPrimerPago;
-				echo "</br>Fecha Actual: ".date('Y-m-d', strtotime('today'));
+				echo "</br><div align='center'>Fecha PrimerPago ".$FechaPrimerPago;
+				echo "</br>Fecha Actual: ".date('Y-m-d', strtotime('today'))."</div>";
 			
 				$datetime1 = date_create($FechaPrimerPago);//Fecha de la Factura
 				$datetime2 =date_create(date('Y-m-d', strtotime('today')));//Fecha Actual
@@ -390,11 +363,11 @@
 				$SemanasTranscurridas=floor(($interval->format('%a') / 7));
 
 				
-				echo "</br>Semanas transcurridas: ".$SemanasTranscurridas;
+				echo "</br><div align='center'>Semanas transcurridas: ".$SemanasTranscurridas;
 
-				 echo "</br>Semanas limite: ".$LimiteDeSemanas=ceil($Plazo*4.3);
+				 echo "</br>Semanas limite: ".$LimiteDeSemanas=ceil($Plazo*4.3)."</div>";
 
-				 //$LimiteDeSemanas=$Plazo*4.3;
+		
 
 
 				 if($LimiteDeSemanas>=$SemanasTranscurridas)
@@ -424,8 +397,8 @@
 		{
 
 				/*Verificar datos*/
-				echo "</br>Fecha PrimerPago ".$FechaPrimerPago;
-				echo "</br>Fecha Actual: ".date('Y-m-d', strtotime('today'));
+				echo "</br><div align='center'>Fecha PrimerPago ".$FechaPrimerPago;
+				echo "</br>Fecha Actual: ".date('Y-m-d', strtotime('today'))."</div>";
 			
 				$datetime1 = date_create($FechaPrimerPago);//Fecha de la Factura
 				$datetime2 =date_create(date('Y-m-d', strtotime('today')));//Fecha Actual
@@ -438,10 +411,9 @@
 				//$SemanasTranscurridas=floor(($interval->format('%a') / 7));
 				$SemanasTranscurridas=floor(($interval->format('%a') / 7));
 
-				
-				echo "</br>Semanas transcurridas: ".$SemanasTranscurridas;
+				echo "</br><div align='center'>Semanas transcurridas: ".$SemanasTranscurridas;
 
-				 echo "</br>Semanas limite: ".$LimiteDeSemanas=ceil($Plazo*4.3);
+				 echo "</br>Semanas limite: ".$LimiteDeSemanas=ceil($Plazo*4.3)."</div>";
 
 				 //$LimiteDeSemanas=$Plazo*4.3;
 
@@ -518,17 +490,6 @@ function ObetenerSaldoVencidoConFecha($IdFactura,$Plazo,$MontoTotalFactura,$Fech
 }
 
 
-/*function VerificarSaldoVencido($SaldoVencido,$Semanas,$Pago)
-{
-	
-	$SaldoVencidoSegunSemanas=$Semanas*$Pago;
-
-	if($SaldoVencidoSegunSemanas<$SaldoVencido)
-	{
-
-	}
-	
-}*/
 
 
 

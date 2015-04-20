@@ -31,8 +31,7 @@
 			}
 
 
-			echo $boton; 
-			echo $NumeroDePretarjeta;
+			
 
 				if($boton=="Buscar Pretarjeta")
 				{
