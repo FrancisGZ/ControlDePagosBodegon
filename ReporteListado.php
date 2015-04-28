@@ -7,6 +7,13 @@
 		<link rel="stylesheet"  href="css/estilo.css">
 
 	</head>
+
+	<?php
+
+	include "db/db.php";
+
+	?>
+
 	<body>
 
 		<?php
@@ -43,7 +50,7 @@
 							<td>
 								<?php 
 
-								$link=mysqli_connect('localhost','root','' , 'bodegon');
+							
 
 								$query="Select * from Rutas";
 

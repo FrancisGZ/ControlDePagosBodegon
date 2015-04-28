@@ -5,59 +5,8 @@
 	include_once("db/db.php");
 
 
-	
-
-	
-
-	function InsertaCliente($IdCliente,$NombreCliente,$Colonia,$Calle,$Telefono,$CodigoPostal,
-								$Municipio,$Ruta)
-	{
-
-			global $link;
-
-			if(!mysqli_query($link,"insert into Clientes (IdCliente,NombreCliente,Colonia,Calle,Telefono,CodigoPostal,
-								Municipio,Ruta) values
-							('$IdCliente','$NombreCliente','$Colonia','$Calle','$Telefono','$CodigoPostal','$Municipio','$Ruta')"))
-				{
-					printf("Error - SQLSTATE %s.\n", mysqli_errno($link));
-				}
-
-	}
-
-
-
-	function InsertaFactura($IdFactura,$IdCliente,$NumeroDePretarjeta,$Financiamiento,$MontoTotalFactura,$FechaFactura,$Plazo,$Articulos,$PrimerDiaDePago,$DiaDePago,
-								$PagoNormal,$PagoPuntual,$Observaciones,$Vendedor,$Comision)
-	{
-		global $link;
-
-		if(!mysqli_query($link,"insert into factura (IdFactura,IdCliente,NumeroDePretarjeta,Financiamiento,MontoTotalFactura,FechaFactura,Plazo,Articulos,FechaPrimerPago,DiaDePago,
-																PagoNormal,PagoPuntual,Observaciones,Vendedor,Comision) 
-													values ('$IdFactura','$IdCliente','$NumeroDePretarjeta','$Financiamiento','$MontoTotalFactura','$FechaFactura','$Plazo','$Articulos',
-														'$PrimerDiaDePago','$DiaDePago','$PagoNormal','$PagoPuntual','$Observaciones','$Vendedor','$Comision')"))
-				{
-					printf("Error - SQLSTATE %s.\n", mysqli_errno($link));
-				}
-	}
-
-
-
-
-	function InsertaAval ($IdCliente,$NombreAval,$ColoniaAval,$CalleAval,$CodigoPostalAval,$MunicipioAval,$TelefonoAval)
-	{
-		global $link;
-
-		if(!mysqli_query($link,"insert into Avales (IdCliente,NombreAval,ColoniaAval,CalleAval,CodigoPostalAval,MunicipioAval,TelefonoAval) values
-														('$IdCliente','$NombreAval','$ColoniaAval','$CalleAval','$CodigoPostalAval','$MunicipioAval','$TelefonoAval')"))
-				{
-					printf("Error - SQLSTATE %s.\n", mysqli_errno($link));
-				}
-	}
-
-
-
-
-
+	/*Esta funcion pasa los pagos que se han realizado a la petarjeta a la factura, 
+	al momento de dar de alata la factura*/
 	function InsertaPagosPretarjetaAFactura ($NumeroDePretarjeta,$IdFactura)
 	{
 		global $link;
@@ -80,7 +29,6 @@
 						{
 							
 							$IdPago=$renglonPagos["IdPago"];
-
 							$MontoPago=$renglonPagos["MontoPago"];
 							$TipoDocumento=$renglonPagos["TipoDocumento"];
 							$TipoPago=$renglonPagos["TipoPago"];
@@ -110,62 +58,12 @@
 						}
 				
 
-					
-				
-
-
-				
-
 			}
 			
 			
 	}
 
 
-
-
-
-
-	function InsertaClienteTemporal($NumeroDePretarjeta,$NombreCliente,$Colonia,$Calle,$Telefono,$CodigoPostal,
-								$Municipio,$Ruta)
-	{
-		global $link;
-
-		if(!mysqli_query($link,"insert into clientestemporal (NumeroDePretarjeta,NombreCliente,Colonia,Calle,Telefono,CodigoPostal,
-								Municipio,Ruta) values
-							('$NumeroDePretarjeta','$NombreCliente','$Colonia','$Calle','$Telefono','$CodigoPostal','$Municipio','$Ruta')"))
-			{
-			 printf("Error - SQLSTATE %s.\n", mysqli_errno($link));
-			}
-	}
-
-
-
-	function InsertaFacturaTemporal($NumeroDePretarjeta,$Financiamiento,$MontoTotalFactura,$FechaFactura,$Plazo,$FechaPrimerPago,$PagoNormal,$PagoPuntual,$Vendedor,$Observaciones,$Comision,$Articulos)
-	{
-		global $link;
-
-		if(!mysqli_query($link,"insert into facturatemporal (NumeroDePretarjeta,Financiamiento,MontoTotalFactura,FechaFactura,Plazo,FechaPrimerPago,PagoNormal,PagoPuntual,Vendedor,Observaciones,Comision,Articulos) 
-													values ('$NumeroDePretarjeta','$Financiamiento','$MontoTotalFactura','$FechaFactura','$Plazo','$FechaPrimerPago','$PagoNormal','$PagoPuntual','$Vendedor','$Observaciones','$Comision','$Articulos')"))
-				{
-				printf("Error - SQLSTATE %s.\n", mysqli_errno($link));
-				}
-
-
-	}
-
-
-
-	function InsertaAvalesTemporal($NumeroDePretarjeta,$NombreAval,$ColoniaAval,$CalleAval,$CodigoPostalAval,$MunicipioAval,$TelefonoAval)
-	{
-		global $link;
-
-		if(!mysqli_query($link,"insert into AvalesTemporal (NumeroDePretarjeta,NombreAval,ColoniaAval,CalleAval,CodigoPostalAval,MunicipioAval,TelefonoAval) values
-														('$NumeroDePretarjeta','$NombreAval','$ColoniaAval','$CalleAval','$CodigoPostalAval','$MunicipioAval','$TelefonoAval')"))
-				{
-				printf("Error - SQLSTATE %s.\n", mysqli_errno($link));
-				}
-	}
 
 
 	function ObtenerDiaDeLaSemana ($FechaPrimerPago)
@@ -234,7 +132,7 @@
 
 
 
-	 function SaldoPretarjeta($NumeroDePretarjeta,$MontoTotalFactura)
+	 function ObtieneSaldoPretarjeta($NumeroDePretarjeta,$MontoTotalFactura)
 	{
 			
 		global $link;

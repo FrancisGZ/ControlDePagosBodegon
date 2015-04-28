@@ -5,6 +5,13 @@
 		<title>Listado</title>
 		<link rel="stylesheet"  href="css/normalize.css">
 	</head>
+
+	<?php
+
+	include "db./db.php";
+
+	?>
+
 	<body>
 
 		<?php
@@ -35,7 +42,7 @@
 							
 
 					<?php
-						$link=mysqli_connect('localhost','root','' , 'bodegon');
+						
 
 						$TotalCuentas=0;
 						$SaldoTotal=0;

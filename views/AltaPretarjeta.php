@@ -8,10 +8,13 @@
 
 		<?php 
 
+require "/../db/ruta.php";
+
+
 /** 
 *
 * @Formulario Alta Pretarjeta . "AltaPretarjeta.php"
-* @versión: 1.5    @modificado: 27 de Noviembre del 2014
+* @versión: 2.0    @modificado: 28 de Abril del 2015
 * @autor: Francis Alonso Gonzalez Zarate
 *
 */
@@ -40,7 +43,7 @@
 
 		<?php 
 		
-			include_once("Menu_Header.html");
+			include_once("/../Menu_Header.html");
 
 		?>	
 		<div class="formulario">
@@ -139,18 +142,18 @@
 					<label>Ruta:</label>
 				</td>
 				<td>
-							<?php $link=mysqli_connect('localhost','root','' , 'bodegon');
+							<?php 
 
-								$query="Select * from Rutas"
+							$rutas=obtenerRutas("select IdRuta from Rutas");
 
 
 							?>
 							<select name="cmbRuta" required>
+								
+								<option value="">Seleccionar ruta</option>";
 								<?php
-								$resultado=$link->query($query);
 
-
-								while($renglon=$resultado->fetch_array())
+								while($renglon=$rutas->fetch_array())
 								{
 									echo "<option value='$renglon[IdRuta]'>$renglon[IdRuta]</option>";
 								}

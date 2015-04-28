@@ -7,7 +7,15 @@
 *
 */
 
+/**
+* 
+*/
+	
+
 $link =mysqli_connect('localhost','root','','programabodegon');
+
+
+
 
 
 function ResultadoQuery($query)
@@ -36,17 +44,6 @@ function ObtenerResultados($query)
 	}
 
 
-function ObtenerRutas()	
-{
-	global $link;
-		
-
-		$resultado=$link->query("select IdRuta from Rutas");
-
-	
-
-		return $resultado;
-}
 
 	function VerificaSiExisteRegistro($query)
 	{
@@ -66,5 +63,7 @@ function ObtenerRutas()
 		
 		return $existe;
 	}
+
+
 
 ?>

@@ -107,13 +107,6 @@
 	$boton=$_GET['btnAccion'];
 
 
-	$link =mysqli_connect('localhost','root','','bodegon');
-
-
-
-
-
-	
 
 
 	if($boton=='Alta')
@@ -123,13 +116,16 @@
 
 		
 		//query para verificar si la factura existe
-		$queryVerificaFactura="select * from factura where IdFactura='$IdFactura'";
-		$existeFactura=VerificaSiExisteRegistro($queryVerificaFactura);
+		//$queryVerificaFactura="select * from factura where IdFactura='$IdFactura'";
+		//$existeFactura=VerificaSiExisteRegistro($queryVerificaFactura);
+
+		$existeFactura=VerificaSiExisteFactura();
 
 		//query para verificar si el cliente existe
-		$queryVerificaCliente="Select * from clientes where IdCliente='$IdCliente'";
-		$existeCliente=VerificaSiExisteRegistro($queryVerificaCliente);
+		//$queryVerificaCliente="Select * from clientes where IdCliente='$IdCliente'";
+		//$existeCliente=VerificaSiExisteRegistro($queryVerificaCliente);
 
+		$existeCliente=VerificaSiExisteCliente();
 	
 		if($existeFactura) 
 		{
