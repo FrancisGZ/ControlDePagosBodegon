@@ -1,19 +1,13 @@
 <?php
 
 
-function view($template,$vars = array())
-{
-	extract($vars);
-	require "views/".$template.".php";	
-
-}
 
 
 function controller($name)
 {
 	if(empty($name))
 	{
-		$name= 'AltaPretarjetaController';//modificar a homecontroller
+		$name= 'HomeController';//modificar a homecontroller
 	}
 
 	$file="controllers/$name.php";

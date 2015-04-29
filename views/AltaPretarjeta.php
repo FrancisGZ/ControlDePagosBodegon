@@ -1,10 +1,10 @@
-<!DOCTYPE html>
+<!--<!DOCTYPE html>
 <html lang="es">
 	<head>
 		<meta charset="utf-8">
 		<title>Alta Pretarjeta</title>
 		<link rel="stylesheet"  href="css/normalize.css">
-		<link rel="stylesheet"  href="css/estilo.css">
+		<link rel="stylesheet"  href="css/estilo.css">-->
 
 		<?php 
 
@@ -35,15 +35,15 @@ require "/../db/ruta.php";
 
 
 		?>
-	</head>
+	<!--</head>
 
 	<body>
-		<div class="container">
+		<div class="container">-->
 			
 
 		<?php 
 		
-			include_once("/../Menu_Header.html");
+			//include_once("/../Menu_Header.html");
 
 		?>	
 		<div class="formulario">
@@ -279,5 +279,5 @@ require "/../db/ruta.php";
 			</div>
 		</table>
 		</div>
-	</body>
-<html>
+	<!--</body>
+<html>-->

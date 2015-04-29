@@ -1,9 +1,20 @@
 <?php
 
 
+class AltaPretarjetaController
+{
+	
+	public function indexAction($parametro)
+	{
+		exit("index " . $parametro);
+	}
 
-$variable = "variable ejemplo1";
-$variable2 = "variable ejemplo2";
-view('AltaPretarjeta',compact('variable','variable2'));
+
+	public function cityAction()
+	{
+		exit("city");
+	}
+}
+
 
 ?>

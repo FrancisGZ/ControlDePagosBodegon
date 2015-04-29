@@ -1,4 +1,4 @@
-<DOCTYPE! html>
+<!DOCTYPE html>
 <html lang="es">
 	<head>
 		<meta charset="utf-8" />
@@ -14,38 +14,35 @@
 				<?php 
 
 // el  front end controller se encarga de configurar la aplicacion
-require "config.php";
-require "db/db.php";
-require "helpers.php";
+require 'config.php';
+require 'db/db.php';
+require 'helpers.php';
+include_once 'Menu_Header.html';
 
-include_once "Menu_Header.html";
 
+//library
+require 'library/Request.php';
+require 'library/Inflector.php';
 //llamar al controlador indicado
 
-controller($_GET['url']);
-
-/*
 if(empty($_GET['url']))
 {
-	require "controllers/Index.php";
-}
-elseif ($_GET['url']=='AltaPretarjeta') 
-{
-	require "controllers/AltaPretarjetaController.php";
+	$url = "";
 }
 else
 {
-	header("HTTP/1.0 404 Not Found");
-	exit("Pagina no encontrada");
+	$url = $_GET['url'];
 }
-*/
 
-//var_dump($_GET);
+$request = new Request($url);
+
+//var_dump($request->getActionMethodName());
+
+$request->execute();
+
 				?>
 
-			<div class="formulario">
-
-			</div><!--formulario-->
+			
 		</div><!--Container-->
 	</body>
 </html>
